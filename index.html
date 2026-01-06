@@ -166,7 +166,7 @@ function calculate() {
 function calculateDiscount() {
     const dCt = parseFloat(diamondCt.value);
     const dRate = parseFloat(diamondRate.value);
-    const grossWt = parseFloat(grossWtInput.value);
+    const grossWt = parseFloat(document.getElementById("grossWt").value);
     const gRate = parseFloat(goldRate.value);
 
     if (isNaN(dCt) || isNaN(dRate) || isNaN(grossWt) || isNaN(gRate)) {
