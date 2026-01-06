@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nikaara Jewellers | Diamond Estimator</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f6f6;
+    margin: 0;
+}
+.container {
+    max-width: 460px;
+    margin: 40px auto;
+    background: #aaecd2; /* mint green */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+.logo {
+    display: block;
+    margin: 0 auto 15px;
+    max-width: 180px;
+}
+h2 {
+    text-align: center;
+    color: #222;
+}
+label {
+    display: block;
+    margin-top: 14px;
+    font-weight: bold;
+    font-size: 14px;
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.btn-estimate {
+    background: #1c1c1c;
+    color: #fff;
+}
+.btn-discount {
+    background: #c9a24d;
+    color: #fff;
+}
+.result {
+    margin-top: 20px;
+    background: #f2f2f2;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.result p {
+    margin: 6px 0;
+}
+.note {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="nikaara-logo.png" class="logo" alt="Nikaara Jewellers">
+
+    <h2>Diamond Price Estimator</h2>
+
+    <label>Diamond Weight (Carats)</label>
+    <input type="number" id="diamondCt" step="0.01" placeholder="Eg: 0.76">
+
+    <label>Diamond Rate (per carat)</label>
+    <input type="number" id="diamondRate" placeholder="Eg: 65999">
+
+    <label>Gross Weight (Grams)</label>
+    <input type="number" id="grossWt" step="0.01" placeholder="Eg: 6.6">
+
+    <label>Select Gold Karat</label>
+    <select id="goldKarat">
+        <option value="9">9K</option>
+        <option value="14">14K</option>
+        <option value="18">18K</option>
+        <option value="22">22K</option>
+    </select>
+
+    <label>Gold Rate (per gram)</label>
+    <input type="number" id="goldRate" placeholder="Eg: 8237">
+
+    <button class="btn-estimate" onclick="calculate()">Get Estimation</button>
+    <button class="btn-discount" onclick="calculateDiscount()">Get with Discount</button>
+
+    <div class="result" id="output"></div>
+
+    <div class="note">
+        * Prices shown are estimates. Final billing may vary slightly.
+    </div>
+
+</div>
+
+<script>
+const GST = 0.03;
+
+function makingRate(weight) {
+    if (weight < 0.5) return 1200;
+    if (weight < 1) return 1799;
+    return 1799;
+}
+
+function calculate() {
+    const dCt = parseFloat(diamondCt.value);
+    const dRate = parseFloat(diamondRate.value);
+    const grossWt = parseFloat(grossWtInput.value);
+    const gRate = parseFloat(goldRate.value);
+
+    if (isNaN(dCt) || isNaN(dRate) || isNaN(grossWt) || isNaN(gRate)) {
+        alert("Please enter all values correctly");
+        return;
+    }
+
+    const diamondGram = dCt * 0.2;
+    const netGoldWt = grossWt - diamondGram;
+
+    if (netGoldWt <= 0) {
+        alert("Gross weight must be greater than diamond weight");
+        return;
+    }
+
+    const diamondValue = dCt * dRate;
+    const goldValue = netGoldWt * gRate;
+    const makingCharges = netGoldWt * makingRate(netGoldWt);
+
+    const subtotal = diamondValue + goldValue + makingCharges;
+    const gstAmount = subtotal * GST;
+    const finalPrice = subtotal + gstAmount;
+
+    output.innerHTML = `
+        <p><b>Diamond Value:</b> ₹${diamondValue.toFixed(2)}</p>
+        <p><b>Net Gold Weight:</b> ${netGoldWt.toFixed(2)} g</p>
+        <p><b>Gold Value:</b> ₹${goldValue.toFixed(2)}</p>
+        <p><b>Making Charges:</b> ₹${makingCharges.toFixed(2)}</p>
+        <p><b>Gross Weight:</b> ${grossWt.toFixed(2)} g</p>
+        <hr>
+        <p><b>GST (3%):</b> ₹${gstAmount.toFixed(2)}</p>
+        <p><b>Final Price:</b> ₹${finalPrice.toFixed(2)}</p>
+    `;
+}
+
+function calculateDiscount() {
+    const dCt = parseFloat(diamondCt.value);
+    const dRate = parseFloat(diamondRate.value);
+    const grossWt = parseFloat(grossWtInput.value);
+    const gRate = parseFloat(goldRate.value);
+
+    if (isNaN(dCt) || isNaN(dRate) || isNaN(grossWt) || isNaN(gRate)) {
+        alert("Please enter all values correctly");
+        return;
+    }
+
+    const diamondGram = dCt * 0.2;
+    const netGoldWt = grossWt - diamondGram;
+
+    if (netGoldWt <= 0) {
+        alert("Gross weight must be greater than diamond weight");
+        return;
+    }
+
+    const diamondValue = dCt * dRate * 0.89;
+    const goldValue = netGoldWt * gRate;
+    const makingCharges = netGoldWt * makingRate(netGoldWt) * 0.84;
+
+    const subtotal = diamondValue + goldValue + makingCharges;
+    const gstAmount = subtotal * GST;
+    const finalPrice = subtotal + gstAmount;
+
+    output.innerHTML = `
+        <p><b>Diamond (After Discount):</b> ₹${diamondValue.toFixed(2)}</p>
+        <p><b>Net Gold Weight:</b> ${netGoldWt.toFixed(2)} g</p>
+        <p><b>Gold Value:</b> ₹${goldValue.toFixed(2)}</p>
+        <p><b>Making (After Discount):</b> ₹${makingCharges.toFixed(2)}</p>
+        <hr>
+        <p><b>GST (3%):</b> ₹${gstAmount.toFixed(2)}</p>
+        <p><b>Final Price with Discount:</b> ₹${finalPrice.toFixed(2)}</p>
+    `;
+}
+</script>
+
+</body>
+</html>
