@@ -5,145 +5,167 @@
 <title>Nikaara Jewellers | Diamond Estimator</title>
 
 <style>
-:root {
-    --mint: #e6f5ef;
-    --dark: #1e1e1e;
-    --gold: #c9a24d;
-    --soft: #f9fefe;
+:root{
+    --bg:#eef7f4;
+    --card:#ffffff;
+    --border:#e3e3e3;
+    --text:#2b2b2b;
+    --gold:#c9a24d;
+    --accent:#0a7d55;
 }
 
-* {
-    box-sizing: border-box;
+body{
+    margin:0;
+    font-family:'Segoe UI','Inter',sans-serif;
+    background:var(--bg);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-body {
-    margin: 0;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #e6f5ef, #f9fffd);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.container{
+    width:100%;
+    max-width:520px;
+    background:var(--card);
+    padding:28px;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.12);
 }
 
-.container {
-    width: 100%;
-    max-width: 480px;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(14px);
-    padding: 28px;
-    border-radius: 20px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-    animation: fadeIn 0.6s ease;
+.logo{
+    display:block;
+    margin:0 auto 14px;
+    max-width:150px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+h2{
+    text-align:center;
+    margin-bottom:22px;
+    color:var(--text);
 }
 
-.logo {
-    display: block;
-    margin: 0 auto 12px;
-    max-width: 170px;
+.section{
+    margin-top:22px;
 }
 
-h2 {
-    text-align: center;
-    color: var(--dark);
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
+.section-title{
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:10px;
+    color:#555;
+    border-left:4px solid var(--gold);
+    padding-left:8px;
 }
 
-label {
-    display: block;
-    margin-top: 16px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #252216;
+label{
+    font-size:13px;
+    margin-top:10px;
+    display:block;
 }
 
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 14px;
-    background: var(--soft);
-    transition: all 0.25s ease;
+input,select{
+    width:100%;
+    padding:11px;
+    margin-top:6px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    font-size:14px;
 }
 
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--gold);
-    box-shadow: 0 0 0 2px rgba(201,162,77,0.25);
+.currency{
+    position:relative;
+}
+.currency span{
+    position:absolute;
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#777;
+}
+.currency input{
+    padding-left:26px;
 }
 
-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 18px;
-    border-radius: 12px;
-    border: none;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+button{
+    width:100%;
+    padding:14px;
+    margin-top:18px;
+    border:none;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+.btn-estimate{
+    background:#252216;
+    color:#fff;
 }
 
-.btn-estimate {
-    background: #252216;  
-    color: #fff;
-
+.btn-discount{
+    background:var(--gold);
+    color:#fff;
 }
 
-.btn-discount {
-    background: linear-gradient(135deg, #c9a24d, #e4c77a);
-    color: #fff;
+.result{
+    margin-top:22px;
 }
 
-.result {
-    margin-top: 24px;
-    padding: 18px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #f9fffd, #eefaf6);
-    font-size: 14px;
-    animation: fadeIn 0.4s ease;
+.box{
+    background:#fafafa;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px;
+    margin-bottom:12px;
 }
 
-.result p {
-    margin: 8px 0;
-    display: flex;
-    justify-content: space-between;
+.box h4{
+    margin:0 0 8px;
+    font-size:14px;
 }
 
-.result b {
-    color: #333;
+.box p{
+    margin:4px 0;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
 }
 
-hr {
-    border: none;
-    border-top: 1px dashed #ccc;
-    margin: 12px 0;
+.summary{
+    background:#f1f6f4;
+    border-radius:14px;
+    padding:16px;
+    margin-top:14px;
 }
 
-.note {
-    font-size: 12px;
-    color: #666;
-    text-align: center;
-    margin-top: 14px;
+.final{
+    font-size:20px;
+    font-weight:700;
+}
+
+.saved{
+    margin-top:6px;
+    color:var(--accent);
+    font-weight:600;
+}
+
+.note{
+    margin-top:12px;
+    font-size:11px;
+    color:#777;
+    text-align:center;
+}
+.stone-row{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:8px;
+    margin-top:10px;
+}
+
+.stone-row select,
+.stone-row input{
+    width:100%;
 }
 </style>
 </head>
@@ -152,169 +174,254 @@ hr {
 
 <div class="container">
 
-    <img src="nikaara-logo.png" class="logo" alt="Nikaara Jewellers">
+<img src="nikaara-logo.png" class="logo">
+<h2>Diamond Price Estimator</h2>
 
-    <h2>Diamond Price Estimator</h2>
+<div class="section">
+<div class="section-title">Gold Details</div>
 
-    <label>Select Gold Karat</label>
+<label>Select Gold Karat</label>
 <select id="goldKarat">
-    <option value="9">9K</option>
-    <option value="14">14K</option>
-    <option value="18">18K</option>
-    <option value="22">22K</option>
+    <option value="9K">9K</option>
+    <option value="14K">14K</option>
+    <option value="18K">18K</option>
+    <option value="22K">22K</option>
 </select>
 
-<label>Gold Gross Weight (Grams)</label>
-<input type="number" id="grossWt" step="0.001" placeholder="Eg: 6.600">
+<label>Gold Gross Weight (grams)</label>
+<input id="grossWt" type="number" step="0.001">
 
 <label>Gold Price (per gram)</label>
-<input type="number" id="goldRate" placeholder="Eg: 8237">
+<div class="currency">
+    <span>₹</span>
+    <input id="goldRate" type="number">
+</div>
+</div>
 
-<label>Diamond Weight (Carats)</label>
-<input type="number" id="diamondCt" step="0.01" placeholder="Eg: 0.76">
+<div class="section">
+<div class="section-title">Diamond Details</div>
 
-<label>Diamond Price (per carat)</label>
-<input type="number" id="diamondRate" placeholder="Eg: 65999">
+<label>Main Diamond Weight (carats)</label>
+<input id="diamondCt" type="number" step="0.01">
 
-    <button class="btn-estimate" onclick="calculate()">Get Estimation</button>
-    <button class="btn-discount" onclick="calculateDiscount()">Get with Discount</button>
+<label>Main Diamond Price (per carat)</label>
+<div class="currency">
+    <span>₹</span>
+    <input id="diamondRate" type="number">
+</div>
+</div>
 
-    <div class="result" id="output"></div>
+<div class="section">
+<div class="section-title">Other Stones</div>
 
-    <div class="note">
-        * Prices shown are estimates. Final billing may vary slightly.
-    </div>
+<select id="hasStones" onchange="toggleStones()">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+</select>
+
+<div id="stonesSection" style="display:none;margin-top:10px">
+    <button type="button" onclick="addStone()">+ Add Stone</button>
+    <div id="stoneList"></div>
+</div>
+</div>
+
+<button class="btn-estimate" onclick="calculate()">Get Estimation</button>
+<button class="btn-discount" onclick="calculateDiscount()">Get With Discount</button>
+
+<div class="result" id="output"></div>
+
+<div class="note">
+*Prices shown are estimates. Final billing may vary slightly.
+</div>
 
 </div>
 
 <script>
 const GST = 0.03;
 
-function makingRate(weight) {
-    if (weight < 0.5) return 1200;
-    if (weight < 1) return 1799;
+function makingRate(w){
+    if(w < 0.5) return 1200;
+    if(w < 1) return 1799;
     return 1799;
+}
+
+function toggleStones(){
+    stonesSection.style.display =
+        hasStones.value === "yes" ? "block" : "none";
+}
+
+function addStone(){
+    const d = document.createElement("div");
+    d.className = "stone-row";
+
+    d.innerHTML = `
+        <select class="stoneType">
+            <option value="diamond">Diamond</option>
+            <option value="other">Other</option>
+        </select>
+
+        <input class="stoneCt" type="number" step="0.01" placeholder="Weight (ct)">
+
+        <input class="stoneRate" type="number" placeholder="₹ / ct">
+    `;
+
+    stoneList.appendChild(d);
+}
+
+
+function stoneTotals(){
+    let diamond = 0, other = 0;
+    document.querySelectorAll("#stoneList div").forEach(row=>{
+        const type = row.querySelector(".stoneType").value;
+        const ct = parseFloat(row.querySelector(".stoneCt").value);
+        const rate = parseFloat(row.querySelector(".stoneRate").value);
+        if(!isNaN(ct) && !isNaN(rate)){
+            if(type === "diamond") diamond += ct * rate;
+            else other += ct * rate;
+        }
+    });
+    return {diamond, other};
 }
 
 /* ================= GET ESTIMATION ================= */
 
-function calculate() {
-    const karat = goldKarat.value;
-    const grossWt = parseFloat(document.getElementById("grossWt").value);
+function calculate(){
+    const gross = parseFloat(grossWt.value);
     const goldRate = parseFloat(document.getElementById("goldRate").value);
-    const diamondCt = parseFloat(document.getElementById("diamondCt").value);
-    const diamondRate = parseFloat(document.getElementById("diamondRate").value);
+    const dCt = parseFloat(diamondCt.value);
+    const dRate = parseFloat(diamondRate.value);
+    const selectedKarat = document.getElementById("goldKarat").value;
 
-    if (
-        isNaN(grossWt) || isNaN(goldRate) ||
-        isNaN(diamondCt) || isNaN(diamondRate)
-    ) {
-        alert("Please enter all values correctly");
+    if([gross, goldRate, dCt, dRate].some(isNaN)){
+        alert("Please enter all values");
         return;
     }
 
-    const diamondGrams = diamondCt * 0.2;
-    const netGoldWt = grossWt - diamondGrams;
-
-    if (netGoldWt <= 0) {
-        alert("Gross weight must be greater than diamond weight");
+    const netGold = gross - (dCt * 0.2);
+    if(netGold <= 0){
+        alert("Invalid weight");
         return;
     }
 
-    const goldValue = netGoldWt * goldRate;
-    const diamondValue = diamondCt * diamondRate;
-    const makingCharges = netGoldWt * makingRate(netGoldWt);
+    const goldValue = netGold * goldRate;
+    const making = netGold * makingRate(netGold);
 
-    const subtotal = goldValue + diamondValue + makingCharges;
-    const gstAmount = subtotal * GST;
-    const finalPrice = subtotal + gstAmount;
+    const stones = stoneTotals();
+    const totalDiamond = (dCt * dRate) + stones.diamond;
+
+    const sub = goldValue + totalDiamond + making + stones.other;
+    const gst = sub * GST;
 
     output.innerHTML = `
-        <p><b>Gold Price:</b> ₹${goldValue.toFixed(2)}</p>
-        <p><b>Diamond Price:</b> ₹${diamondValue.toFixed(2)}</p>
-        <p><b>Making Charges:</b> ₹${makingCharges.toFixed(2)}</p>
-        <p><b>GST (3%):</b> ₹${gstAmount.toFixed(2)}</p>
+    <div class="box">
+        <h4>Selected Gold Karat</h4>
+        <p><b>${selectedKarat}</b></p>
+    </div>
+
+    <div class="box">
+        <h4>Gold</h4>
+        <p><span>Gold Value</span><span>₹${goldValue.toFixed(2)}</span></p>
+    </div>
+
+    <div class="box">
+        <h4>Diamonds</h4>
+        <p><span>Total Diamond Value</span><span>₹${totalDiamond.toFixed(2)}</span></p>
+    </div>
+
+    <div class="box">
+        <h4>Making Charges</h4>
+        <p><span>Making</span><span>₹${making.toFixed(2)}</span></p>
+    </div>
+
+    <div class="box">
+        <h4>Other Stones</h4>
+        <p><span>Total Value</span><span>₹${stones.other.toFixed(2)}</span></p>
+    </div>
+
+    <div class="summary">
+        <p><span>Total Before GST</span><span>₹${sub.toFixed(2)}</span></p>
+        <p><span>GST (3%)</span><span>₹${gst.toFixed(2)}</span></p>
         <hr>
-        <p><b>Final Price:</b> ₹${finalPrice.toFixed(2)}</p>
-        <p style="font-size:12px;color:#666;">
-            Net Gold Weight: ${netGoldWt.toFixed(3)} g
-        </p>
-    `;
+        <p class="final">Final Price: ₹${(sub + gst).toFixed(2)}</p>
+        <p style="font-size:12px">Net Gold Weight: ${netGold.toFixed(3)} g</p>
+    </div>`;
 }
 
 /* ================= GET WITH DISCOUNT ================= */
 
-
-function calculateDiscount() {
-    const grossWt = parseFloat(document.getElementById("grossWt").value);
+function calculateDiscount(){
+    const gross = parseFloat(grossWt.value);
     const goldRate = parseFloat(document.getElementById("goldRate").value);
-    const diamondCt = parseFloat(document.getElementById("diamondCt").value);
-    const diamondRate = parseFloat(document.getElementById("diamondRate").value);
+    const dCt = parseFloat(diamondCt.value);
+    const dRate = parseFloat(diamondRate.value);
+    const selectedKarat = document.getElementById("goldKarat").value;
 
-    if (
-        isNaN(grossWt) || isNaN(goldRate) ||
-        isNaN(diamondCt) || isNaN(diamondRate)
-    ) {
-        alert("Please enter all values correctly");
+    if([gross, goldRate, dCt, dRate].some(isNaN)){
+        alert("Please enter all values");
         return;
     }
 
-    const diamondGrams = diamondCt * 0.2;
-    const netGoldWt = grossWt - diamondGrams;
-
-    if (netGoldWt <= 0) {
-        alert("Gross weight must be greater than diamond weight");
+    const netGold = gross - (dCt * 0.2);
+    if(netGold <= 0){
+        alert("Invalid weight");
         return;
     }
 
-    const goldValue = netGoldWt * goldRate;
+    const goldValue = netGold * goldRate;
+    const making = netGold * makingRate(netGold);
+    const makingDisc = making * 0.16;
 
-    /* Diamond calculation */
-    const diamondOriginal = diamondCt * diamondRate;
-    const diamondDiscountValue = diamondOriginal * 0.11;
-    const diamondAfterDiscount = diamondOriginal - diamondDiscountValue;
+    const stones = stoneTotals();
+    const totalDiamond = (dCt * dRate) + stones.diamond;
+    const diamondDisc = totalDiamond * 0.11;
 
-    /* Making calculation */
-    const makingOriginal = netGoldWt * makingRate(netGoldWt);
-    const makingDiscountValue = makingOriginal * 0.16;
-    const makingAfterDiscount = makingOriginal - makingDiscountValue;
-
-    /* Discounted subtotal before GST */
-    const discountedSubtotal =
+    const sub =
         goldValue +
-        diamondAfterDiscount +
-        makingAfterDiscount;
+        (totalDiamond - diamondDisc) +
+        (making - makingDisc) +
+        stones.other;
 
-    const gstAmount = discountedSubtotal * GST;
-    const finalPrice = discountedSubtotal + gstAmount;
+    const gst = sub * GST;
 
     output.innerHTML = `
-        <p><b>Gold Price:</b> ₹${goldValue.toFixed(2)}</p>
+    <div class="box">
+        <h4>Selected Gold Karat</h4>
+        <p><b>${selectedKarat}</b></p>
+    </div>
 
-        <p><b>Diamond Price:</b> ₹${diamondOriginal.toFixed(2)}</p>
-        <p style="color:#1e5eff;">
-            Diamond Discount (11%): -₹${diamondDiscountValue.toFixed(2)}
-        </p>
-        <p><b>Diamond After Discount:</b> ₹${diamondAfterDiscount.toFixed(2)}</p>
+    <div class="box">
+        <h4>Gold</h4>
+        <p><span>Gold Value</span><span>₹${goldValue.toFixed(2)}</span></p>
+    </div>
 
-        <p><b>Making Charges:</b> ₹${makingOriginal.toFixed(2)}</p>
-        <p style="color:#1e5eff;">
-            Making Discount (16%): -₹${makingDiscountValue.toFixed(2)}
-        </p>
-        <p><b>Making After Discount:</b> ₹${makingAfterDiscount.toFixed(2)}</p>
+    <div class="box">
+        <h4>Diamonds</h4>
+        <p><span>Total Diamond Value</span><span>₹${totalDiamond.toFixed(2)}</span></p>
+        <p><span>Diamond Discount (11%)</span><span>-₹${diamondDisc.toFixed(2)}</span></p>
+        <p><b><span>After Discount</span><span>₹${(totalDiamond - diamondDisc).toFixed(2)}</span></b></p>
+    </div>
 
+    <div class="box">
+        <h4>Making Charges</h4>
+        <p><span>Original</span><span>₹${making.toFixed(2)}</span></p>
+        <p><span>Making Discount (16%)</span><span>-₹${makingDisc.toFixed(2)}</span></p>
+        <p><b><span>After Discount</span><span>₹${(making - makingDisc).toFixed(2)}</span></b></p>
+    </div>
+
+    <div class="box">
+        <h4>Other Stones</h4>
+        <p><span>Total Value</span><span>₹${stones.other.toFixed(2)}</span></p>
+    </div>
+
+    <div class="summary">
+        <p><span>Total After Discount (Before GST)</span><span>₹${sub.toFixed(2)}</span></p>
+        <p><span>GST (3%)</span><span>₹${gst.toFixed(2)}</span></p>
         <hr>
-        <p><b>Total After Discount (Before GST):</b> ₹${discountedSubtotal.toFixed(2)}</p>
-        <p><b>GST (3%):</b> ₹${gstAmount.toFixed(2)}</p>
-
-        <hr>
-        <p><b>Final Price:</b> ₹${finalPrice.toFixed(2)}</p>
-
-        <p style="font-size:12px;color:#666;">
-            Net Gold Weight: ${netGoldWt.toFixed(3)} g
-        </p>
-    `;
-    }
+        <p class="final">Final Price: ₹${(sub + gst).toFixed(2)}</p>
+        <p class="saved">You Saved ₹${(diamondDisc + makingDisc).toFixed(2)}</p>
+        <p style="font-size:12px">Net Gold Weight: ${netGold.toFixed(3)} g</p>
+    </div>`;
+}
 </script>
 
 </body>
