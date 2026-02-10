@@ -6,155 +6,154 @@
 
 <style>
 :root{
-    --bg:#eef7f4;
-    --card:#ffffff;
-    --border:#e3e3e3;
-    --gold:#c9a24d;
-    --dark:#252216;
-    --accent:#0a7d55;
+  --bg:#eef7f4;
+  --card:#ffffff;
+  --border:#e3e3e3;
+  --gold:#c9a24d;
+  --dark:#252216;
+  --accent:#0a7d55;
 }
 *{box-sizing:border-box}
 
 body{
-    margin:0;
-    font-family:'Segoe UI','Inter',sans-serif;
-    background:var(--bg);
-    min-height:100vh;
-    padding:30px;
+  margin:0;
+  font-family:Segoe UI, Inter, sans-serif;
+  background:var(--bg);
+  padding:30px;
 }
 
-.wrapper{
-    max-width:1100px;
-    margin:auto;
-}
-
+.wrapper{max-width:1100px;margin:auto}
 .card{
-    background:var(--card);
-    padding:26px;
-    border-radius:18px;
-    box-shadow:0 20px 45px rgba(0,0,0,.12);
+  background:var(--card);
+  padding:26px;
+  border-radius:18px;
+  box-shadow:0 20px 45px rgba(0,0,0,.12)
 }
 
 .logo{display:block;margin:0 auto 12px;max-width:140px}
-h2{text-align:center;margin-bottom:22px}
+h2{text-align:center;margin-bottom:20px}
 
-.section{margin-top:24px}
+.section{margin-top:22px}
 .section-title{
-    display:flex;align-items:center;gap:8px;
-    font-size:14px;font-weight:600;margin-bottom:14px
-}
-.section-title::before{
-    content:"";width:4px;height:16px;background:var(--gold)
+  font-weight:600;
+  margin-bottom:10px;
+  border-left:4px solid var(--gold);
+  padding-left:8px;
 }
 
-label{font-size:13px;margin-bottom:4px;display:block}
+label{font-size:13px}
 input,select{
-    width:100%;
-    padding:11px;
-    border-radius:8px;
-    border:1px solid var(--border);
-    background:#fbfbfb;
-    margin-bottom:12px;
+  width:100%;
+  padding:10px;
+  margin:6px 0 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
 }
 
-.toggle{
-    display:flex;border:1px solid var(--border);
-    border-radius:10px;overflow:hidden;margin-bottom:12px
-}
+.toggle{display:flex;border-radius:8px;overflow:hidden}
 .toggle button{
-    flex:1;padding:10px;border:none;
-    cursor:pointer;background:#eee;font-weight:600
+  flex:1;
+  padding:10px;
+  border:none;
+  background:#eee;
+  font-weight:600;
+  cursor:pointer
 }
 .toggle button.active{background:var(--dark);color:#fff}
 
 .stones-wrapper{
-    background:#f7f7f7;border:1px solid var(--border);
-    border-radius:14px;padding:14px
+  background:#f7f7f7;
+  border-radius:12px;
+  padding:12px;
 }
 .stone-row{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr auto;
-    gap:8px;margin-bottom:10px
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr auto;
+  gap:8px;
+  margin-bottom:8px;
 }
 .add-stone-btn{
-    width:100%;padding:10px;border:none;
-    border-radius:10px;background:#e0e0e0;
-    font-weight:600;margin-bottom:12px;cursor:pointer
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:#ddd;
+  font-weight:600;
+  cursor:pointer
 }
 .delete-btn{
-    background:#ffdede;border:none;
-    border-radius:8px;padding:6px 8px;cursor:pointer
+  background:#ffdede;
+  border:none;
+  border-radius:6px;
+  padding:6px;
+  cursor:pointer
 }
 
-.actions{
-    margin-top:26px;
-}
-button.action{
-    width:100%;
-    padding:14px;border:none;
-    border-radius:12px;font-size:14px;
-    font-weight:600;cursor:pointer
+.actions{margin-top:24px}
+.action{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer
 }
 .btn-estimate{background:var(--dark);color:#fff}
 
 /* MODAL */
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    align-items:center;
-    justify-content:center;
-    z-index:999;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  justify-content:center;
+  align-items:center;
+  z-index:999
 }
 .modal-content{
-    background:#fff;
-    width:90%;
-    max-width:560px;
-    padding:24px;
-    border-radius:18px;
-    box-shadow:0 25px 60px rgba(0,0,0,.3);
+  background:#fff;
+  width:90%;
+  max-width:620px;
+  padding:24px;
+  border-radius:18px;
 }
 .close{
-    position:absolute;
-    right:24px;top:18px;
-    font-size:22px;cursor:pointer
+  float:right;
+  font-size:22px;
+  cursor:pointer
 }
 
-/* RESULT */
 .box{
-    background:#fafafa;border:1px solid var(--border);
-    border-radius:14px;padding:14px;margin-bottom:14px
+  background:#fafafa;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:12px
 }
 .box h4{margin:0 0 6px;font-size:14px}
 .box small{color:#666;font-size:12px}
 .box p{
-    margin:4px 0;
-    display:flex;
-    justify-content:space-between;
-    font-size:13px
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  margin:4px 0
 }
-.summary{
-    background:#f1f6f4;border-radius:16px;padding:16px
-}
-.final{font-size:22px;font-weight:700}
-.saved{color:var(--accent);font-weight:600;margin-top:6px}
 
-/* MODAL ACTIONS */
+.summary{
+  background:#f1f6f4;
+  border-radius:14px;
+  padding:14px
+}
+.final{font-size:20px;font-weight:700}
+.saved{color:var(--accent);font-weight:600}
+
 .modal-actions{
-    display:flex;
-    gap:12px;
-    margin-top:18px;
+  display:flex;
+  gap:10px;
+  margin-top:14px
 }
-.btn-close{
-    flex:1;
-    background:#ddd;
-}
-.btn-discount{
-    flex:1;
-    background:var(--gold);
-    color:#fff;
-}
+.btn-close{background:#ddd}
+.btn-discount{background:var(--gold);color:#fff}
 </style>
 </head>
 
@@ -172,14 +171,16 @@ button.action{
 
 <label>Gold Karat</label>
 <select id="goldKarat">
-<option>9K</option><option>14K</option>
-<option>18K</option><option>22K</option>
+  <option value="9">9K</option>
+  <option value="14">14K</option>
+  <option value="18">18K</option>
+  <option value="22">22K</option>
 </select>
 
 <label>Gross Weight (grams)</label>
 <input id="grossWt" type="number" step="0.001">
 
-<label>Gold Price (per gram)</label>
+<label>Gold Price (₹ / gram)</label>
 <input id="goldRate" type="number">
 </div>
 
@@ -187,7 +188,6 @@ button.action{
 <div class="section">
 <div class="section-title">Diamond Details</div>
 
-<label>Diamond Type</label>
 <div class="toggle">
 <button id="naturalBtn" class="active" onclick="setDiamondType('Natural')">Natural</button>
 <button id="cvdBtn" onclick="setDiamondType('CVD')">Lab-Grown (CVD)</button>
@@ -237,148 +237,153 @@ let diamondType = "Natural";
 
 const naturalBtn = document.getElementById("naturalBtn");
 const cvdBtn = document.getElementById("cvdBtn");
-const diamondRateInput = document.getElementById("diamondRate");
 
 const inr = n =>
   "₹" + n.toLocaleString("en-IN", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
   });
 
 function setDiamondType(type){
-    diamondType = type;
-    naturalBtn.classList.remove("active");
-    cvdBtn.classList.remove("active");
-    if(type==="Natural"){
-        naturalBtn.classList.add("active");
-        diamondRateInput.value = 64999;
-    }else{
-        cvdBtn.classList.add("active");
-        diamondRateInput.value = "";
-    }
+  diamondType = type;
+  naturalBtn.classList.toggle("active", type==="Natural");
+  cvdBtn.classList.toggle("active", type==="CVD");
+  diamondRate.value = type==="Natural" ? 64999 : "";
 }
 
 function addStone(){
-    const row=document.createElement("div");
-    row.className="stone-row";
-    row.innerHTML=`
-        <select class="stoneType">
-            <option value="diamond">Diamond (${diamondType})</option>
-            <option value="other">Other Stone</option>
-        </select>
-        <input class="stoneCt" type="number" step="0.01" placeholder="Ct">
-        <input class="stoneRate" type="number" placeholder="₹ / ct">
-        <button class="delete-btn" onclick="this.parentElement.remove()">✖</button>
-    `;
-    stoneList.appendChild(row);
+  stoneList.insertAdjacentHTML("beforeend",`
+    <div class="stone-row">
+      <select class="stoneType">
+        <option value="diamond">Diamond</option>
+        <option value="other">Other Stone</option>
+      </select>
+      <input class="stoneCt" type="number" step="0.01" placeholder="Ct">
+      <input class="stoneRate" type="number" placeholder="₹ / ct">
+      <button class="delete-btn" onclick="this.parentElement.remove()">✖</button>
+    </div>
+  `);
 }
 
-function calculate(applyDiscount){
-    const gross=parseFloat(grossWt.value);
-    const goldRateVal=parseFloat(goldRate.value);
-    const mainCt=parseFloat(diamondCt.value);
-    const mainRate=parseFloat(diamondRate.value);
+function calculate(discount){
+  const gross = +grossWt.value;
+  const goldRateVal = +goldRate.value;
+  const mainCt = +diamondCt.value;
+  const mainRate = +diamondRate.value;
 
-    if([gross,goldRateVal,mainCt,mainRate].some(isNaN))
-        return alert("Please enter all values");
+  if ([gross, goldRateVal, mainCt, mainRate].some(isNaN)) {
+    alert("Please enter all values correctly");
+    return;
+  }
 
-    let diamondList=[{
-        label:`Main Diamond (${diamondType})`,
-        value:mainCt*mainRate,
-        ct:mainCt
-    }];
+  let diamonds = [{
+    label:`Main Diamond (${diamondType})`,
+    ct:mainCt,
+    value:mainCt * mainRate
+  }];
 
-    let otherDiamondCt=0, otherStoneCt=0;
-    let otherStoneValue=0, stoneGrams=0;
+  let otherDiamondCt=0, otherStoneCt=0;
+  let otherStoneValue=0, stoneGrams=0;
 
-    document.querySelectorAll(".stone-row").forEach((r,i)=>{
-        const type=r.querySelector(".stoneType").value;
-        const ct=parseFloat(r.querySelector(".stoneCt").value);
-        const rate=parseFloat(r.querySelector(".stoneRate").value);
-        if(!isNaN(ct)&&!isNaN(rate)){
-            stoneGrams+=ct*0.2;
-            if(type==="diamond"){
-                diamondList.push({
-                    label:`Diamond Stone ${i+1}`,
-                    value:ct*rate,
-                    ct
-                });
-                otherDiamondCt+=ct;
-            }else{
-                otherStoneCt+=ct;
-                otherStoneValue+=ct*rate;
-            }
-        }
-    });
+  document.querySelectorAll(".stone-row").forEach((r,i)=>{
+    const ct = +r.querySelector(".stoneCt").value;
+    const rate = +r.querySelector(".stoneRate").value;
+    const type = r.querySelector(".stoneType").value;
 
-    const netGold=gross-(mainCt*0.2)-stoneGrams;
-    if(netGold<=0) return alert("Invalid weights");
+    if(!isNaN(ct) && !isNaN(rate)){
+      stoneGrams += ct * 0.2;
+      if(type==="diamond"){
+        diamonds.push({
+          label:`Diamond Stone ${i+1}`,
+          ct, value:ct * rate
+        });
+        otherDiamondCt += ct;
+      } else {
+        otherStoneCt += ct;
+        otherStoneValue += ct * rate;
+      }
+    }
+  });
 
-    const goldValue=netGold*goldRateVal;
-    const making=netGold*1799;
+  const netGold = gross - (mainCt*0.2) - stoneGrams;
+  if(netGold<=0){
+    alert("Invalid weights");
+    return;
+  }
 
-    const totalDiamond=diamondList.reduce((s,d)=>s+d.value,0);
-    const diamondDisc=applyDiscount?totalDiamond*0.11:0;
-    const makingDisc=applyDiscount?making*0.16:0;
+  const goldValue = netGold * goldRateVal;
+  const making = netGold * 1799;
 
-    const beforeGST=
-        goldValue+
-        (totalDiamond-diamondDisc)+
-        (making-makingDisc)+
-        otherStoneValue;
+  const totalDiamond = diamonds.reduce((s,d)=>s+d.value,0);
+  const diamondDisc = discount ? totalDiamond * 0.11 : 0;
+  const makingDisc = discount ? making * 0.16 : 0;
 
-    const gst=beforeGST*GST;
+  const ActualBeforeGST = goldValue + totalDiamond + making + otherStoneValue;
+  const discountedBeforeGST =
+    goldValue + (totalDiamond-diamondDisc) + (making-makingDisc) + otherStoneValue;
 
-    modalOutput.innerHTML=`
-    <div class="box">
-        <h4>Gold</h4>
-        <small>Net Weight: ${netGold.toFixed(3)} g</small>
-        <p><span>Gold Value</span><span>${inr(goldValue)}</span></p>
-    </div>
+  const ActualGST = ActualBeforeGST * GST;
+  const discountedGST = discountedBeforeGST * GST;
 
-    <div class="box">
-        <h4>Diamonds (${diamondType})</h4>
-        <small>
-            Main: ${mainCt.toFixed(2)} ct
-            ${otherDiamondCt>0?` | Other: ${otherDiamondCt.toFixed(2)} ct`:""}
-        </small>
-        ${diamondList.map(d=>`<p><span>${d.label}</span><span>${inr(d.value)}</span></p>`).join("")}
-        <hr>
-        <p><b>Total Diamond</b><b>${inr(totalDiamond)}</b></p>
-        ${applyDiscount?`<p>Discount (11%): -${inr(diamondDisc)}</p>`:""}
-    </div>
+  const ActualFinal = ActualBeforeGST + ActualGST;
+  const discountedFinal = discountedBeforeGST + discountedGST;
 
-    ${otherStoneCt>0?`
-    <div class="box">
-        <h4>Other Stones</h4>
-        <small>Total: ${otherStoneCt.toFixed(2)} ct</small>
-        <p><span>Value</span><span>${inr(otherStoneValue)}</span></p>
-    </div>`:""}
+  modalOutput.innerHTML = `
+  <div class="box">
+    <h4>Gold</h4>
+    <small>Karat: ${goldKarat.value}K | Net Weight: ${netGold.toFixed(2)} g</small>
+    <p><span>Gold Value</span><span>${inr(goldValue)}</span></p>
+  </div>
 
-    <div class="box">
-        <h4>Making Charges</h4>
-        <p><span>Making</span><span>${inr(making)}</span></p>
-        ${applyDiscount?`<p>Discount (16%): -${inr(makingDisc)}</p>`:""}
-    </div>
+  <div class="box">
+    <h4>Diamonds (${diamondType})</h4>
+    <small>
+      Main: ${mainCt.toFixed(2)} ct
+      ${otherDiamondCt>0?` | Other: ${otherDiamondCt.toFixed(2)} ct`:""}
+    </small>
+    ${diamonds.map(d=>`<p><span>${d.label}</span><span>${inr(d.value)}</span></p>`).join("")}
+    <hr>
+    <p><b>Total Diamond</b><b>${inr(totalDiamond)}</b></p>
+    ${discount?`<p>Diamond Discount (11%): -${inr(diamondDisc)}</p>`:""}
+  </div>
 
-    <div class="summary">
-        <p><span>Total Before GST</span><span>${inr(beforeGST)}</span></p>
-        <p><span>GST (3%)</span><span>${inr(gst)}</span></p>
-        <hr>
-        <p class="final">Final Price: ${inr(beforeGST+gst)}</p>
-        ${applyDiscount?`<p class="saved">You Saved ${inr(diamondDisc+makingDisc)}</p>`:""}
-    </div>
-    `;
+  ${otherStoneCt>0?`
+  <div class="box">
+    <h4>Other Stones</h4>
+    <small>Total: ${otherStoneCt.toFixed(2)} ct</small>
+    <p><span>Value</span><span>${inr(otherStoneValue)}</span></p>
+  </div>`:""}
 
-    openModal();
+  <div class="box">
+    <h4>Making Charges</h4>
+    <p><span>Making</span><span>${inr(making)}</span></p>
+    ${discount?`<p>Making Discount (16%): -${inr(makingDisc)}</p>`:""}
+  </div>
+
+  <div class="box">
+    <h4>GST</h4>
+    <p><span>GST @ 3%</span>
+       <span>${inr(discount ? discountedGST : ActualGST)}</span></p>
+  </div>
+
+  <div class="summary">
+    ${discount?`
+    <p><span>Actual Price (Incl. GST)</span>
+       <span>${inr(ActualFinal)}</span></p>
+    `:""}
+    <p>
+      <span>${discount?"Discounted":"Final"} Price (Incl. GST)</span>
+      <span class="final">${inr(discount?discountedFinal:ActualFinal)}</span>
+    </p>
+    ${discount?`<p class="saved">You Saved ${inr(ActualFinal-discountedFinal)}</p>`:""}
+  </div>
+  `;
+
+  openModal();
 }
 
-function openModal(){
-    document.getElementById("estimateModal").style.display="flex";
-}
-function closeModal(){
-    document.getElementById("estimateModal").style.display="none";
-}
+function openModal(){estimateModal.style.display="flex"}
+function closeModal(){estimateModal.style.display="none"}
 </script>
 
 </body>
